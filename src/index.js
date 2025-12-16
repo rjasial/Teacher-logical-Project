@@ -1,5 +1,6 @@
 import fs from "fs";
 import Student from "./models/Student.js";
+import Classroom from "./models/Classroom.js";
 
 
 // const student1 = new Student(1, "John", 
@@ -77,6 +78,15 @@ for (let i = 2; i < headers.length; i++) {
 return new Student(id, name, marks);
 });
 
-console.log("Total Students:", students.length);
-console.log("First Student:", students[0]);
-console.log(students[students.length-1]);
+// console.log("Total Students:", students.length);
+// console.log("First Student:", students[0]);
+// console.log(students[students.length-1]);
+
+
+const classroom = new Classroom(students);
+//console.log(classroom.students.length);
+
+const topper = classroom.getTopperByTotalMarks();
+console.log("Topper:", topper.name);
+console.log("Topper total:", topper.getTotalMarks());
+console.log(students[25]);
