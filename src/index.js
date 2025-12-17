@@ -90,3 +90,18 @@ const topper = classroom.getTopperByTotalMarks();
 console.log("Topper:", topper.name);
 console.log("Topper total:", topper.getTotalMarks());
 //console.log(students[25]);
+
+const total = classroom.getSubjectAverage("Maths");
+console.log(classroom.getSubjectAverage("Maths"));
+console.log(classroom.getSubjectAverage("CS"));
+console.log(classroom.getSubjectAverage("Social Science"));
+
+
+const rankingList = classroom.studentRanking();
+console.log("Ranking List:", rankingList.length);
+
+for (let i = 0; i < 30; i++) {
+    const student = rankingList[i];
+    const rank = i + 1;
+    console.log(`Rank ${rank}: ${student.name} - ${student.getTotalMarks()}`);
+}
