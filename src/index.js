@@ -89,4 +89,4 @@ const classroom = new Classroom(students);
 const topper = classroom.getTopperByTotalMarks();
 console.log("Topper:", topper.name);
 console.log("Topper total:", topper.getTotalMarks());
-console.log(students[25]);
+//console.log(students[25]);
