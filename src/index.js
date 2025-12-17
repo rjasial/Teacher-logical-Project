@@ -100,8 +100,12 @@ console.log(classroom.getSubjectAverage("Social Science"));
 const rankingList = classroom.studentRanking();
 console.log("Ranking List:", rankingList.length);
 
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 5; i++) {
     const student = rankingList[i];
     const rank = i + 1;
-    console.log(`Rank ${rank}: ${student.name} - ${student.getTotalMarks()}`);
+
+
+    console.log(`Rank ${rank}: ${student.name} - ${student.getTotalMarks()} || Percentage: ${student.getPercentage()}% || Grade: ${student.getGrade()}`);
 }
+
+
