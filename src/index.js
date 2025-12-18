@@ -108,4 +108,15 @@ for (let i = 0; i < 5; i++) {
     console.log(`Rank ${rank}: ${student.name} - ${student.getTotalMarks()} || Percentage: ${student.getPercentage()}% || Grade: ${student.getGrade()}`);
 }
 
+const overallAvg = classroom.overAllAverage();
+console.log("Overall Class Average Percentage:", overallAvg);
 
+
+const allSubjectAverages = classroom.getAllSubjectsAverages();
+console.log("All Subject Averages:", allSubjectAverages);
+
+console.log(classroom.studentStrengthWeakness("John"))
+
+console.log(classroom.studentStrengthWeakness("Kavish"));
+
+console.log(classroom.studentStrengthWeakness("Student_27"));
