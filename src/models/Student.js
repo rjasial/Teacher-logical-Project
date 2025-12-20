@@ -22,8 +22,6 @@ class Student{
         const result = Number(percentage);
 
         return result;
-
-
     }
 
     getGrade(){

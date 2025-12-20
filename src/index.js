@@ -32,8 +32,7 @@ const lines = csvText.trim().split("\n");
 const headersLine = lines[0];
 const dataLines = lines.slice(1);
 
-const headers = headersLine.split(",");
-
+const headers = headersLine.split(",").map(h => h.trim())
  //console.log("headers:", headers);
 //console.log("dataLines:", dataLines);
 // console.log("first student row:", dataLines[0]);
@@ -65,47 +64,63 @@ const firstRowValues = firstRow.split(",");
 
 
 const students = dataLines.map((row) => {
-const values = row.split(",");
+const values = row.split(",").map(v => v.trim())
 //console.log(values);
 const id = Number(values[0]);
 const name = values[1];
 const marks = {};
 for (let i = 2; i < headers.length; i++) {
     const subject = headers[i];
+     // Adjusting subject name if needed
     const score = Number(values[i]);
     marks[subject] = score;
 }
 return new Student(id, name, marks);
 });
 
+
+const subjects = headers.slice(2);
+console.log("SUBJECTS LIST:", subjects);
+
+
+
+
 // console.log("Total Students:", students.length);
-// console.log("First Student:", students[0]);
+ //console.log("First Student:", students[0]);
 // console.log(students[students.length-1]);
 
 
 const classroom = new Classroom(students);
 //console.log(classroom.students.length);
 
+
+const firstSubject = subjects[0];
+const avg = classroom.getSubjectAverage(firstSubject);
+
+console.log("First Subject:", firstSubject);
+console.log("Average:", avg);
+
+
 const topper = classroom.getTopperByTotalMarks();
-console.log("Topper:", topper.name);
-console.log("Topper total:", topper.getTotalMarks());
+//console.log("Topper:", topper.name);
+//console.log("Topper total:", topper.getTotalMarks());
 //console.log(students[25]);
 
 const total = classroom.getSubjectAverage("Maths");
-console.log(classroom.getSubjectAverage("Maths"));
-console.log(classroom.getSubjectAverage("CS"));
-console.log(classroom.getSubjectAverage("Social Science"));
+// console.log(classroom.getSubjectAverage("Maths"));
+// console.log(classroom.getSubjectAverage("CS"));
+// console.log(classroom.getSubjectAverage("Social Science"));
 
 
 const rankingList = classroom.studentRanking();
-console.log("Ranking List:", rankingList.length);
+//console.log("Ranking List:", rankingList.length);
 
 for (let i = 0; i < 5; i++) {
     const student = rankingList[i];
     const rank = i + 1;
 
 
-    console.log(`Rank ${rank}: ${student.name} - ${student.getTotalMarks()} || Percentage: ${student.getPercentage()}% || Grade: ${student.getGrade()}`);
+    //console.log(`Rank ${rank}: ${student.name} - ${student.getTotalMarks()} || Percentage: ${student.getPercentage()}% || Grade: ${student.getGrade()}`);
 }
 
 const overallAvg = classroom.overAllAverage();
@@ -113,10 +128,29 @@ console.log("Overall Class Average Percentage:", overallAvg);
 
 
 const allSubjectAverages = classroom.getAllSubjectsAverages();
-console.log("All Subject Averages:", allSubjectAverages);
+//console.log("All Subject Averages:", allSubjectAverages);
 
-console.log(classroom.studentStrengthWeakness("John"))
+//console.log(classroom.studentStrengthWeakness("John"))
 
-console.log(classroom.studentStrengthWeakness("Kavish"));
+//console.log(classroom.studentStrengthWeakness("Kavish"));
 
-console.log(classroom.studentStrengthWeakness("Student_27"));
+//console.log(classroom.studentStrengthWeakness("Student_27"));
+
+let above = 0;
+let below = 0;
+let equal = 0;
+
+for(let student of classroom.students){
+    const score = student.marks[firstSubject];
+
+    if(score > avg){
+        above++;
+    }else if(score < avg){
+        below++;
+    } else {
+        equal++;
+    }
+}
+console.log(`Students above average in Maths: ${above}`);
+console.log(`Students below average in Maths: ${below}`);
+console.log(`Students equal to average in Maths: ${equal}`);    

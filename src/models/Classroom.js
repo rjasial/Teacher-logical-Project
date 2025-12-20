@@ -15,7 +15,6 @@ class Classroom{
 
         }
         return topper;
-    
     }
 
     getSubjectAverage(subject){
@@ -34,12 +33,9 @@ class Classroom{
         for(let i = 0; i < rankingList.length; i++){
             for(let j = i+1; j < rankingList.length; j++){
                 if(rankingList[i].getTotalMarks() < rankingList[j].getTotalMarks()){
-               
-
                    let temp = rankingList[i];
-                     rankingList[i] = rankingList[j];
-                        rankingList[j] = temp;
-                
+                    rankingList[i] = rankingList[j];
+                    rankingList[j] = temp;
                 }
             }
           
@@ -91,10 +87,16 @@ studentStrengthWeakness(name){
             weakSubject
      };
 
-        }
-         
+        }  
     }
 }
+
+
+
+getAboveBelowAverage(subject){
+    
+}
+
 
 }
 
