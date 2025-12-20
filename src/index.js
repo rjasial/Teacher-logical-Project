@@ -151,6 +151,18 @@ for(let student of classroom.students){
         equal++;
     }
 }
-console.log(`Students above average in Maths: ${above}`);
-console.log(`Students below average in Maths: ${below}`);
-console.log(`Students equal to average in Maths: ${equal}`);    
+// console.log(`Students above average in Maths: ${above}`);
+// console.log(`Students below average in Maths: ${below}`);
+// console.log(`Students equal to average in Maths: ${equal}`);    
+
+// const aboveBelowStudents = classroom.getAboveBelowByAverage("CS");
+// //console.log(aboveBelowStudents)
+
+
+
+const subjectStat = [];
+for(let subject of subjects){
+    subjectStat.push(classroom.getAboveBelowByAverage(subject));
+}
+
+console.log(subjectStat)

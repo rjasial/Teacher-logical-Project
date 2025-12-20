@@ -93,12 +93,33 @@ studentStrengthWeakness(name){
 
 
 
-getAboveBelowAverage(subject){
-    
+getAboveBelowByAverage(subject){
+    const avg = this.getSubjectAverage(subject);
+
+    let aboveAvg = 0;
+    let belowAvg = 0;
+    let equalAvg = 0;
+
+    for(let student of this.students){
+        let studentMark = student.marks[subject];
+        if(studentMark > avg){
+            aboveAvg++;
+    }else if(studentMark < avg){
+        belowAvg++;
+    }else{
+        equalAvg++;
+    }
+
 }
 
-
+return{
+    subject,
+    avg,
+    aboveAvg,
+    belowAvg,
+    equalAvg
+}
 }
 
-
+}
 export default Classroom;
