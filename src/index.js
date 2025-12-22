@@ -90,7 +90,7 @@ console.log("SUBJECTS LIST:", subjects);
 // console.log(students[students.length-1]);
 
 
-const classroom = new Classroom(students);
+const classroom = new Classroom(students, subjects);
 //console.log(classroom.students.length);
 
 
@@ -135,22 +135,24 @@ const allSubjectAverages = classroom.getAllSubjectsAverages();
 //console.log(classroom.studentStrengthWeakness("Kavish"));
 
 //console.log(classroom.studentStrengthWeakness("Student_27"));
+//
 
-let above = 0;
-let below = 0;
-let equal = 0;
+//Counting students above, below and equal to average in first subject
+// let above = 0;
+// let below = 0;
+// let equal = 0;
 
-for(let student of classroom.students){
-    const score = student.marks[firstSubject];
+// for(let student of classroom.students){
+//     const score = student.marks[firstSubject];
 
-    if(score > avg){
-        above++;
-    }else if(score < avg){
-        below++;
-    } else {
-        equal++;
-    }
-}
+//     if(score > avg){
+//         above++;
+//     }else if(score < avg){
+//         below++;
+//     } else {
+//         equal++;
+//     }
+// }
 // console.log(`Students above average in Maths: ${above}`);
 // console.log(`Students below average in Maths: ${below}`);
 // console.log(`Students equal to average in Maths: ${equal}`);    
@@ -165,4 +167,39 @@ for(let subject of subjects){
     subjectStat.push(classroom.getAboveBelowByAverage(subject));
 }
 
-console.log(subjectStat)
+console.log(subjectStat);
+
+//Trying to see if we can compare a student's score with class average for that subject
+
+// const student = classroom.students[0];
+// console.log(student);
+// const  firstSubjectName = subjects[0];
+// const averageScore = classroom.getSubjectAverage(firstSubjectName);
+// const johnScore = student.marks[firstSubjectName];
+
+// if(johnScore > averageScore){
+//     console.log("above average");
+// }else if(johnScore < averageScore){
+//     console.log("below average");
+// } else {
+//     console.log("equal to average");
+// }
+
+
+// for(let subject of subjects){
+//     const classAvg = classroom.getSubjectAverage(subject);
+//     const johnScore = classroom.students[0].marks[subject];
+
+//     if(johnScore > classAvg){
+//         console.log(`John's score in ${subject} is above average.`);
+//     }else if(johnScore < classAvg){
+//         console.log(`John's score in ${subject} is below average.`);
+//     } else {
+//         console.log(`John's score in ${subject} is equal to average.`);
+//     }
+
+// }
+
+
+const studentComparison = classroom.getStudentAboveBelowAverage("John");
+console.log(studentComparison);

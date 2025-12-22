@@ -1,6 +1,7 @@
 class Classroom{
-    constructor(studtens){
+    constructor(studtens, subjects){
         this.students = studtens;
+        this.subjects = subjects;
     }
 
 
@@ -120,6 +121,41 @@ return{
     equalAvg
 }
 }
+
+
+
+getStudentAboveBelowAverage(studentName){
+    let foundStudent = null;
+
+    for(let curretStudent of this.students){
+    if(curretStudent.name === studentName){
+        foundStudent = curretStudent;
+        break;
+    }
+}
+ if(!foundStudent){ return "Student not found"};
+
+ const result = {};
+
+ for(let eachSubject of this.subjects){
+    let studentScore = foundStudent.marks[eachSubject];
+    const classAvg = this.getSubjectAverage(eachSubject);
+    if(studentScore > classAvg ){
+        result[eachSubject] = "above average";
+    }else if(studentScore < classAvg){
+        result[eachSubject] = "below average";
+ }else{
+    result[eachSubject] = "equal to average";
+ }
+}
+return {
+    studentName,
+    comparison: result
+};
+}
+
+
+
 
 }
 export default Classroom;
