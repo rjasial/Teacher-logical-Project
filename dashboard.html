@@ -60,7 +60,7 @@
         const subjectStats = data.subjectStats || data.subjectStatistics;
   
         if (!subjectStats || !Array.isArray(subjectStats)) {
-          console.error("❌ subjectStats data missing or not an array:", subjectStats);
+          console.error("subjectStats data missing or not an array:", subjectStats);
           return;
         }
   
@@ -116,7 +116,7 @@
       // -------- Graph 3: Student Comparison (Radar) --------
 const comparisons = data.studentComparisons;
 if (!comparisons || !Array.isArray(comparisons) || comparisons.length === 0) {
-  console.error("❌ studentComparisons missing/empty:", comparisons);
+  console.error("studentComparisons missing/empty:", comparisons);
   return;
 }
 
@@ -166,7 +166,7 @@ new Chart(radarCtx, {
 
       })
       .catch((err) => {
-        console.error("❌ Failed to load dashboardData.json:", err);
+        console.error("Failed to load dashboardData.json:", err);
       });
 
 
