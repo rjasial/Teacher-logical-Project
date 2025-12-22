@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 import Student from "./models/Student.js";
 import Classroom from "./models/Classroom.js";
 
@@ -203,3 +204,24 @@ console.log(subjectStat);
 
 const studentComparison = classroom.getStudentAboveBelowAverage("John");
 console.log(studentComparison);
+
+console.log("subj: ", subjectStat);
+
+
+const outputDir = path.join(process.cwd(), "output");
+const outputFile = path.join(outputDir, "dashboardData.json");
+
+
+const dashboardData = {
+    overallAveragePercentage: Number(overallAvg),
+    subjectStats: subjectStat,
+    studentComparisons: [studentComparison]
+  };
+  
+
+if(!fs.existsSync(outputDir)){
+    fs.mkdirSync(outputDir, { recursive: true});
+}
+
+fs.writeFileSync(outputFile, JSON.stringify(dashboardData, null, 2), "utf-8");
+console.log("Dashboard data written to", outputFile);

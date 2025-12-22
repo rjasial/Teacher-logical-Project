@@ -1,0 +1,68 @@
+{
+  "overallAveragePercentage": 70.65,
+  "subjectStats": [
+    {
+      "subject": "Maths",
+      "avg": 69.13,
+      "aboveAvg": 15,
+      "belowAvg": 15,
+      "equalAvg": 0
+    },
+    {
+      "subject": "Physics",
+      "avg": 67.03,
+      "aboveAvg": 16,
+      "belowAvg": 14,
+      "equalAvg": 0
+    },
+    {
+      "subject": "Chemistry",
+      "avg": 70.2,
+      "aboveAvg": 15,
+      "belowAvg": 15,
+      "equalAvg": 0
+    },
+    {
+      "subject": "English",
+      "avg": 70.83,
+      "aboveAvg": 17,
+      "belowAvg": 13,
+      "equalAvg": 0
+    },
+    {
+      "subject": "Hindi",
+      "avg": 69.37,
+      "aboveAvg": 16,
+      "belowAvg": 14,
+      "equalAvg": 0
+    },
+    {
+      "subject": "Social Science",
+      "avg": 71.17,
+      "aboveAvg": 16,
+      "belowAvg": 14,
+      "equalAvg": 0
+    },
+    {
+      "subject": "CS",
+      "avg": 76.8,
+      "aboveAvg": 17,
+      "belowAvg": 13,
+      "equalAvg": 0
+    }
+  ],
+  "studentComparisons": [
+    {
+      "studentName": "John",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "below average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "above average"
+      }
+    }
+  ]
+}
