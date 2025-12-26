@@ -42,53 +42,54 @@
   </div>
 
   <div class="chart-container">
-    <h2>Student Strengths & Weaknesses (John)</h2>
+    <h2>Student Strengths & Weaknesses</h2>
+  
+    <label for="studentSelect">Select Student: </label>
+    <select id="studentSelect"></select>
+  
     <canvas id="radarChart"></canvas>
   </div>
+  
 
 
  <!-- Chart.js CDN -->
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
  <script>
-    fetch("./output/dashboardData.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("✅ Dashboard data loaded:", data);
-  
-        // ✅ Support either key name (subjectStats OR subjectStatistics)
-        const subjectStats = data.subjectStats || data.subjectStatistics;
-  
-        if (!subjectStats || !Array.isArray(subjectStats)) {
-          console.error("subjectStats data missing or not an array:", subjectStats);
-          return;
-        }
-  
-        const labels = subjectStats.map((s) => s.subject);
-        const averages = subjectStats.map((s) => s.avg);
-  
-        const avgCtx = document.getElementById("avgChart");
-        new Chart(avgCtx, {
-          type: "bar",
-          data: {
-            labels,
-            datasets: [
-              {
-                label: "Average Marks",
-                data: averages
-              }
-            ]
-          },
-          options: {
-            responsive: true,
-            scales: {
-              y: { beginAtZero: true }
-            }
-          }
-        });
+  // Avoid caching so you always get the latest JSON after running node src/index.js
+  fetch("./output/dashboardData.json?v=" + Date.now())
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("✅ Dashboard data loaded:", data);
 
-  // -------- Graph 2: Above vs Below (Stacked) --------
-  const above = subjectStats.map((s) => s.aboveAvg);
+      // -------- Shared: subjectStats --------
+      const subjectStats = data.subjectStats || data.subjectStatistics;
+
+      if (!Array.isArray(subjectStats) || subjectStats.length === 0) {
+        console.error("❌ subjectStats missing/empty:", subjectStats);
+        return;
+      }
+
+      const labels = subjectStats.map((s) => s.subject);
+
+      // -------- Graph 1: Subject Averages --------
+      const averages = subjectStats.map((s) => s.avg);
+
+      const avgCtx = document.getElementById("avgChart");
+      new Chart(avgCtx, {
+        type: "bar",
+        data: {
+          labels,
+          datasets: [{ label: "Average Marks", data: averages }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+
+      // -------- Graph 2: Above vs Below (Stacked) --------
+      const above = subjectStats.map((s) => s.aboveAvg);
       const below = subjectStats.map((s) => s.belowAvg);
       const equal = subjectStats.map((s) => s.equalAvg);
 
@@ -112,68 +113,85 @@
         }
       });
 
+      // -------- Graph 3: Student Comparison (Radar - Dynamic) --------
+      const comparisons = data.studentComparisons; // must be an array now
+      
 
-      // -------- Graph 3: Student Comparison (Radar) --------
-const comparisons = data.studentComparisons;
-if (!comparisons || !Array.isArray(comparisons) || comparisons.length === 0) {
-  console.error("studentComparisons missing/empty:", comparisons);
-  return;
-}
-
-const john = comparisons[0]; // first student (John)
-const comparisonMap = john.comparison; // { Maths: "above average", ... }
-
-// Use the same subject order as the charts
-const radarLabels = labels;
-
-// Convert text -> number
-const radarValues = radarLabels.map((subj) => {
-  const status = comparisonMap[subj];
-
-  if (status === "above average") return 1;
-  if (status === "equal to average" || status === "equal average") return 0;
-  if (status === "below average") return -1;
-
-  return 0; // fallback if missing
-});
-
-const radarCtx = document.getElementById("radarChart");
-
-new Chart(radarCtx, {
-  type: "radar",
-  data: {
-    labels: radarLabels,
-    datasets: [
-      {
-        label: `${john.studentName} vs Class Avg`,
-        data: radarValues
+      if (!Array.isArray(comparisons) || comparisons.length === 0) {
+        console.error("studentComparisons missing/empty:", comparisons);
+        return;
       }
-    ]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      r: {
-        min: -1,
-        max: 1,
-        ticks: { stepSize: 1 }
+
+      const selectEl = document.getElementById("studentSelect");
+      if (!selectEl) {
+        console.error(" Could not find select#studentSelect");
+        return;
       }
-    }
-  }
-});
 
+      // Fill dropdown
+      selectEl.innerHTML = "";
+      comparisons.forEach((c, idx) => {
+        const opt = document.createElement("option");
+        opt.value = String(idx);
 
+        // Support either key name just in case
+        const displayName = c.studentName || c.name || `Student ${idx + 1}`;
+        opt.textContent = displayName;
 
-      })
-      .catch((err) => {
-        console.error("Failed to load dashboardData.json:", err);
+        selectEl.appendChild(opt);
       });
 
+      // Convert text -> number
+      function statusToValue(status) {
+        if (status === "above average") return 1;
+        if (status === "equal to average" || status === "equal average") return 0;
+        if (status === "below average") return -1;
+        return 0;
+      }
 
+      function buildRadarValues(studentObj) {
+        const map = studentObj.comparison || {};
+        return labels.map((subj) => statusToValue(map[subj]));
+      }
 
+      const radarCtx = document.getElementById("radarChart");
+      const first = comparisons[0];
 
-  </script>
-  
+      const radarChart = new Chart(radarCtx, {
+        type: "radar",
+        data: {
+          labels,
+          datasets: [
+            {
+              label: `${first.studentName || first.name} vs Class Avg`,
+              data: buildRadarValues(first)
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            r: { min: -1, max: 1, ticks: { stepSize: 1 } }
+          }
+        }
+      });
+
+      // Ensure first option is selected and visible
+      selectEl.value = "0";
+
+      // Update radar on change
+      selectEl.addEventListener("change", () => {
+        const chosen = comparisons[Number(selectEl.value)];
+        radarChart.data.datasets[0].label = `${chosen.studentName || chosen.name} vs Class Avg`;
+        radarChart.data.datasets[0].data = buildRadarValues(chosen);
+        radarChart.update();
+      });
+    })
+    .catch((err) => {
+      console.error("❌ Failed to load dashboardData.json:", err);
+    });
+</script>
+
   
 </body>
 </html>

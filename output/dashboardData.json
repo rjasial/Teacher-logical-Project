@@ -63,6 +63,354 @@
         "Social Science": "below average",
         "CS": "above average"
       }
+    },
+    {
+      "studentName": "Mary",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Aman",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Peashan",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Pablo",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "above average",
+        "Chemistry": "below average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Naveen",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Aditi",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Arjun",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Manish",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Yash",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Varun",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Mehul",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Divya",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "above average",
+        "Chemistry": "below average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Tanvi",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Harsh",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Kavya",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Aarav",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Ananya",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Sneha",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Rahul",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Student_21",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Student_22",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Student_23",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Student_24",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Student_25",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Kavish",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Student_27",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Student_28",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
+    },
+    {
+      "studentName": "Student_29",
+      "comparison": {
+        "Maths": "below average",
+        "Physics": "below average",
+        "Chemistry": "below average",
+        "English": "below average",
+        "Hindi": "below average",
+        "Social Science": "below average",
+        "CS": "below average"
+      }
+    },
+    {
+      "studentName": "Student_30",
+      "comparison": {
+        "Maths": "above average",
+        "Physics": "above average",
+        "Chemistry": "above average",
+        "English": "above average",
+        "Hindi": "above average",
+        "Social Science": "above average",
+        "CS": "above average"
+      }
     }
   ]
 }

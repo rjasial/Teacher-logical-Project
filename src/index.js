@@ -200,10 +200,17 @@ console.log(subjectStat);
 //     }
 
 // }
-
-
-const studentComparison = classroom.getStudentAboveBelowAverage("John");
-console.log(studentComparison);
+const studentComparisons = students.map((s) => {
+    const result = classroom.getStudentAboveBelowAverage(s.name);
+  
+    return {
+      studentName: s.name,          
+      comparison: result.comparison 
+    };
+  });
+  
+  
+console.log(studentComparisons);
 
 console.log("subj: ", subjectStat);
 
@@ -215,7 +222,7 @@ const outputFile = path.join(outputDir, "dashboardData.json");
 const dashboardData = {
     overallAveragePercentage: Number(overallAvg),
     subjectStats: subjectStat,
-    studentComparisons: [studentComparison]
+    studentComparisons: studentComparisons
   };
   
 
